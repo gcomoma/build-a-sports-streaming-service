@@ -69,8 +69,10 @@ export default function Layout({ children }: LayoutProps) {
               <LogIn className="w-4 h-4" />
               <span className="hidden sm:inline">Sign In</span>
             </Button>
-            <Button variant="ghost" size="icon">
-              <User className="w-5 h-5" />
+            <Button variant="ghost" size="icon" asChild>
+              <Link to="/settings">
+                <User className="w-5 h-5" />
+              </Link>
             </Button>
           </div>
         </div>
