@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
+// Live games page
 export default function Live() {
   const liveGames = [
     {
