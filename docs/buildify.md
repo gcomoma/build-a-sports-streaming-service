@@ -16,7 +16,7 @@
 - [x] Setup design system with sports theme
 - [x] Create main layout and navigation
 - [x] Build home page with featured content
+- [x] Create dedicated live games page
 - [ ] Implement sports category browsing
 - [ ] Create video player component
-- [ ] Add live stream listings
 - [ ] Build event schedule view
