@@ -4,6 +4,7 @@
 - Featured live streams and upcoming events
 - Video player with playback controls
 - Responsive design for all devices
+- User authentication with sign in/sign up
 
 ### Designs
 - Modern sports-themed design with dynamic gradients

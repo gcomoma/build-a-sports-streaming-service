@@ -1,9 +1,10 @@
 
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Play, Home, Calendar, TrendingUp, User, Search } from 'lucide-react';
+import { Play, Home, Calendar, TrendingUp, User, Search, LogIn } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import AuthDialog from '@/components/AuthDialog';
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
+  const [authDialogOpen, setAuthDialogOpen] = useState(false);
 
   const navItems = [
     { path: '/', label: 'Home', icon: Home },
@@ -59,12 +61,22 @@ export default function Layout({ children }: LayoutProps) {
                 className="pl-10 bg-secondary border-border"
               />
             </div>
+            <Button 
+              variant="default" 
+              className="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground"
+              onClick={() => setAuthDialogOpen(true)}
+            >
+              <LogIn className="w-4 h-4" />
+              <span className="hidden sm:inline">Sign In</span>
+            </Button>
             <Button variant="ghost" size="icon">
               <User className="w-5 h-5" />
             </Button>
           </div>
         </div>
       </header>
+
+      <AuthDialog open={authDialogOpen} onOpenChange={setAuthDialogOpen} />
 
       {/* Main Content */}
       <main className="flex-1">
