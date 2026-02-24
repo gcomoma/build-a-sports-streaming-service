@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Play, Users, Filter } from 'lucide-react';
+import { Play, Users, Filter, Clock } from 'lucide-react';
 import {
   Select,
   SelectContent,
@@ -216,10 +216,24 @@ export default function Live() {
                   LIVE
                 </Badge>
 
-                {/* Viewers Count */}
-                <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs text-white">
-                  <Users className="w-3 h-3" />
-                  {game.viewers}
+                {/* Viewers Count & Reminder */}
+                <div className="absolute top-3 right-3 flex items-center gap-2">
+                  <div className="flex items-center gap-1.5 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs text-white">
+                    <Users className="w-3 h-3" />
+                    {game.viewers}
+                  </div>
+                  <Button
+                    size="icon"
+                    variant="secondary"
+                    className="w-8 h-8 bg-black/60 backdrop-blur-sm hover:bg-black/80 border-0"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      // Handle reminder logic here
+                      alert(`Reminder set for ${game.title}`);
+                    }}
+                  >
+                    <Clock className="w-4 h-4 text-white" />
+                  </Button>
                 </div>
 
                 {/* Score & Time */}
